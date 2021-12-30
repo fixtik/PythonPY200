@@ -1,7 +1,7 @@
 from typing import Union, Any
 
 import plotly.graph_objs as go
-
+import chart_studio.plotly as py
 
 class Cube:
     """
@@ -197,51 +197,28 @@ class Cube:
                           paper_bgcolor="LightSteelBlue")
         fig.show()
 
-    # def draw_cube(self) -> None:
-    #     """
-    #     Отображение куба  с помощью plotly
-    #     """
-    #     start = 0
-    #     a = start + (self.get_len_a()) * 10
-    #     # x = [a, a, start, start, a, a, start, start]
-    #     # y = [start, a, a, start, start, a, a, start]
-    #     # z = [start, start, start, start, a, a, a, a]
-    #     x = [0, 0, 0, 0, 100, 100, 100, 100]
-    #     y = [100, 0, 100, 0, 100, 0, 100, 0]
-    #     z = [100, 100, 0, 0, 100, 100, 0, 0]
-    #     # fig = go.Figure(data=[go.Mesh3d(x=x, y=y, z=z,
-    #     #                                 opacity=0.5,
-    #     #                                 color='rgba(244,22,100,0.6)'
-    #     #                                 )])
-    #     fig = go.Figure(data=[go.Mesh3d(x=x, y=y, z=z, i=y, j=z, k=x, color='lightpink', opacity=0.50)])
-    #     # fig = go.Figure(data=[
-    #     #     go.Scatter3d(x=x, y=y, z=z,
-    #     #                  mode='markers',
-    #     #                  marker=dict(size=2)
-    #     #                  ),
-    #     #     go.Scatter3d(
-    #     #         # 8 vertices of a cube
-    #     #         x=x,
-    #     #         y=y,
-    #     #         z=z,
-    #     #
-    #     #         # i=[7, 0, 0, 0, 4, 4, 6, 6, 4, 0, 3, 2],
-    #     #         # j=[3, 4, 1, 2, 5, 6, 5, 2, 0, 1, 6, 3],
-    #     #         # k=[0, 7, 2, 3, 6, 7, 1, 1, 5, 5, 7, 6],
-    #     #         opacity=0.6,
-    #     #         # color='#DC143C',
-    #     #         # flatshading=True
-    #     #     )
-    #     # ])
-    #
-    #     fig.update_layout(
-    #         scene=dict(
-    #             xaxis=dict(nticks=4, range=[-100, 100], ),
-    #             yaxis=dict(nticks=4, range=[-50, 100], ),
-    #             zaxis=dict(nticks=4, range=[-100, 100], ), ),
-    #         width=700,
-    #         margin=dict(r=20, l=10, b=10, t=10))
-    #     fig.show()
+    def draw_cube(self) -> None:
+        """
+        Отображение куба  с помощью plotly
+        """
+        start = 0
+        a = start + (self.get_len_a())
+
+        fig = go.Figure(data=go.Isosurface(cmin=a,
+            x=[0, 0, 0, 0, a, a, a, a],
+            y=[a, 0, a, 0, a, 0, a, 0],
+            z=[a, a, 0, 0, a, a, 0, 0],
+            value=[a, a, a, a, a, a, a, a],
+        ))
+
+        fig.update_layout(
+            scene=dict(
+                xaxis=dict(nticks=4, range=[-100, 100], ),
+                yaxis=dict(nticks=4, range=[-50, 100], ),
+                zaxis=dict(nticks=4, range=[-100, 100], ), ),
+            width=700,
+            margin=dict(r=20, l=10, b=10, t=10))
+        fig.show()
 
 
 cube = Cube(15, color=(1, 5, 1), border_width=10, border_color=(90,255, 240))
@@ -249,4 +226,4 @@ print(cube)
 
 print(list(Cube(i) for i in range(5)))
 
-cube.draw_square()
+cube.draw_cube()
