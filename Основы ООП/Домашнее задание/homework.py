@@ -201,8 +201,8 @@ class Cube:
         """
         Отображение куба  с помощью plotly
         """
-        start = 0
-        a = start + (self.get_len_a())
+
+        a = self.get_len_a()
 
         fig = go.Figure(data=go.Isosurface(cmin=a,
             x=[0, 0, 0, 0, a, a, a, a],

@@ -11,22 +11,22 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 1992
-    length: 28
+  - offset: 2054
+    length: 68
     placeholder_text: '...  # TODO проверка индекса'
     initial_state:
       length: 28
       offset: 1992
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Failed
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError()
 
               if not 0 <= index < self.len:  # для for
                   raise IndexError()
-  - offset: 2030
+  - offset: 2426
     length: 29
     placeholder_text: '...  # TODO алгоритм удаления'
     initial_state:
@@ -34,7 +34,7 @@ files:
       offset: 2030
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |-
       if index == 0:
                   self.head = self.head.next
@@ -183,5 +183,20 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Failed
+feedback:
+  message: Incorrect
+  time: Thu, 30 Dec 2021 18:07:33 UTC
+  expected: |
+    [1, 2, 3]
+    [1, 3]
+    [1]
+    []
+  actual: |
+    [1, 2, 3]
+    [1, 3]
+    [1, 2, 3]
+    [1, 3]
+    [1]
+    []
 record: -1

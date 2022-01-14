@@ -14,19 +14,34 @@ class Date:
 
         self.is_valid_date(self.day, self.month, self.year)
 
-    def is_leap_year(self, year: int):
+    @staticmethod
+    def is_leap_year(year: int):
         """Проверяет, является ли год високосным"""
-        ...  # TODO
+        return True if (year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0) else False
 
-    def get_max_day(self, month: int, year: int):
+
+    def get_max_day(self, month: int, year: int) -> int:
         """Возвращает максимальное количество дней в месяце для указанного года"""
-        ...  # TODO
+        if self.is_leap_year(year):
+            return self.DAY_OF_MONTH[1][month-1]
+        else:
+            return self.DAY_OF_MONTH[0][month-1]
 
     def is_valid_date(self, day: int, month: int, year: int):
         """Проверяет, является ли дата корректной"""
-        ...  # TODO
-
+        if not (isinstance(day, int) & isinstance(month, int) & isinstance(year, int)):
+            raise TypeError('Вводите целочисленные значения')
+        if not((1 <= day <= 31) & (1 <= month <= 12) & year >= 0):
+            raise ValueError('Превышен диапазон возможных значений!')
+        if not (day <= self.DAY_OF_MONTH[0][month-1] or day <= self.DAY_OF_MONTH[1][month-1]):
+            raise ValueError('Проверьте корректность введенных данных')
+        if self.get_max_day(month, year) < day:
+            raise ValueError('В этом месяце не может быть так много дней')
+        self.day = day
+        self.month = month
+        self.year = year
 
 if __name__ == "__main__":
     # Write your solution here
-    pass
+    calen = Date(9,1,-1)
+
