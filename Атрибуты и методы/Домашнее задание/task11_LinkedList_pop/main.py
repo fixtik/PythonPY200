@@ -101,7 +101,7 @@ class LinkedList:
         if not isinstance(index, int):
             raise TypeError()
 
-        if not 0 <= index: # для for
+        if not 0 <= index:  # для for
             raise IndexError()
 
         if index >= self.len:
@@ -155,7 +155,7 @@ class LinkedList:
         :return: значение элемента
         """
         if isinstance(index, type(None)):
-            index = self.len
+            index = self.len - 1
         result = self.step_by_step_on_nodes(index)
         self.__delitem__(index)
         return result
@@ -165,9 +165,9 @@ if __name__ == '__main__':
     list_ = [1, 2, 3]
     linked_list = LinkedList(list_)
 
-    linked_list.extend([2,3,5,6])
+    linked_list.extend([2, 3, 5, 6])
     print(linked_list)
 
     print(linked_list.pop(4))
-
     print(linked_list)
+    print(linked_list.pop())
