@@ -7,9 +7,9 @@ from node import Node
 class LinkedList:
     def __init__(self, data: Iterable = None):
         """Конструктор связного списка"""
-        self.len = 0
-        self.head: Optional[Node] = None
-        self.tail = self.head
+        self._len = 0
+        self._head: Optional[Node] = None
+        self._tail = self._head
 
         if data is not None:
             for value in data:
@@ -19,11 +19,11 @@ class LinkedList:
         """ Добавление элемента в конец связного списка. """
         append_node = Node(value)
 
-        if self.head is None:
-            self.head = self.tail = append_node
+        if self._head is None:
+            self._head = self._tail = append_node
         else:
-            self.linked_nodes(self.tail, append_node)
-            self.tail = append_node
+            self.linked_nodes(self._tail, append_node)
+            self._tail = append_node
 
         self.len += 1
 
@@ -35,7 +35,7 @@ class LinkedList:
         if not 0 <= index < self.len:  # для for
             raise IndexError()
 
-        current_node = self.head
+        current_node = self._head
         for _ in range(index):
             current_node = current_node.next
 
@@ -70,6 +70,13 @@ class LinkedList:
     def __str__(self) -> str:
         return f"{self.to_list()}"
 
+    @property
+    def len(self):
+        return self._len
+
+    @len.setter
+    def len(self, val: int):
+        self._len = val
 
 if __name__ == "__main__":
     list_ = [1, 2, 3]

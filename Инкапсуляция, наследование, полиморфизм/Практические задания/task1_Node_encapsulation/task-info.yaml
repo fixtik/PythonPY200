@@ -9,16 +9,16 @@ files:
   visible: true
   placeholders:
   - offset: 399
-    length: 44
+    length: 52
     placeholder_text: 'self.next = None  # TODO заменить на private'
     initial_state:
       length: 44
       offset: 399
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: self.__next = None
-  - offset: 520
+  - offset: 528
     length: 124
     placeholder_text: 'f"Node({self.value}, {None})" if self.next is None else f"Node({self.value},
       Node({self.next}))"  # TODO заменить на private'
@@ -27,10 +27,10 @@ files:
       offset: 520
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: f"Node({self.value}, {None})" if self.__next is None
       else f"Node({self.value}, Node({self.__next}))"
-  - offset: 934
+  - offset: 942
     length: 45
     placeholder_text: 'self.next = next_  # TODO заменить на private'
     initial_state:
@@ -38,7 +38,7 @@ files:
       offset: 934
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: self.__next = next_
   text: |
     from typing import Any, Optional
@@ -84,5 +84,8 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 15 Jan 2022 21:17:51 UTC
 record: -1

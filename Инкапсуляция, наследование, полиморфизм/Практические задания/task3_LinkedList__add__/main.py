@@ -70,7 +70,11 @@ class LinkedList:
         return f"{self.to_list()}"
 
     def __add__(self, other: "LinkedList") -> "LinkedList":
-        ...  # TODO реализовать конкатенацию последовательностей
+        if not isinstance(other, type(self)):
+            raise TypeError
+        for item in other:
+            self.append(item)
+        return self
 
 
 if __name__ == "__main__":

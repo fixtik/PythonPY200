@@ -32,4 +32,32 @@ class Node:
         self.is_valid(next_)
         self._next = next_
 
-# TODO реализовать класс DoubleLinkedNode
+class DoubleLinkedNode(Node):
+    """Класс двусвязного узла"""
+    def __init__(self, value: Any, next_: Optional["Node"] = None, prev_: Optional["Node"] = None):
+        super().__init__(value, next_)
+        self.prev = prev_
+
+    @property
+    def prev(self):
+        return self._prev
+
+    @prev.setter
+    def prev(self, prev_: Optional["Node"]):
+        self.is_valid(prev_)
+        self._prev = prev_
+
+    # __str__ остается от родителя
+
+    def __repr__(self) -> str:
+        cls_name = self.__class__.__name__
+        next_s = f'{cls_name}({self.next})' if self.next is not None else 'None'
+        prev_s = f'{cls_name}({self.prev})' if self.prev is not None else 'None'
+        return f"{cls_name}({self.value}, {next_s}, {prev_s})"
+
+
+if __name__ == '__main__':
+
+    dln = DoubleLinkedNode('Элемент')
+
+    print(repr(dln))
