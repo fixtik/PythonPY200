@@ -71,15 +71,19 @@ class LinkedList:
         return f"{self.to_list()}"
 
     def nodes_iterator(self) -> Iterator[Node]:
-        ...  # TODO написать функцию-генератор, которая будет возвращать узлы связного списка
+        corrent_node = self.head
+        for _ in range(self.len):
+            yield corrent_node
+            corrent_node = corrent_node.next
 
     def __iter__(self) -> Iterator[Any]:
         print("Вызван метод \"__iter__\"")
-        # TODO реализовать функцию-генератор по значениям списка
+        for node in self.nodes_iterator():
+            yield node.value
 
 
 if __name__ == '__main__':
-    list_ = [1, 2, 3]
+    list_ = [1, 2, 3, 4, 5, 6]
     linked_list = LinkedList(list_)
 
     for value in linked_list:

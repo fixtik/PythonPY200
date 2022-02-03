@@ -94,7 +94,7 @@ class LinkedList:
         if not self.len < other.len:
             return False
 
-        for item1, item2 in zip(self,other):
+        for item1, item2 in zip(self, other):
             if item1 >= item2:
                 return False
 

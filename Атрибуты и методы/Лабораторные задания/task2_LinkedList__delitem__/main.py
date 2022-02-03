@@ -105,7 +105,7 @@ if __name__ == '__main__':
 
 
     def print_next(self, index):
-        return self.step_by_step_on_nodes(index).next
+        return self._step_by_step_on_nodes(index).next
 
 if __name__ == '__main__':
     list_ = [1, 2, 3]

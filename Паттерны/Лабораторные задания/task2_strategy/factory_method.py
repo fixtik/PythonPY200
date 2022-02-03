@@ -23,7 +23,17 @@ class SimpleFileFactoryMethod(DriverFactoryMethod):
         return SimpleFileDriver(filename)
 
 
-#
+class JsonFileDriverFactoryMethod(DriverFactoryMethod):
+    DEFAULT_NAME = 'untitled.json'
+    @classmethod
+    def get_driver(cls) -> IStructureDriver:
+        filename = input('Введите название json файла: (.json)').strip()
+        filename = filename or cls.DEFAULT_NAME
+        if not filename.endswith('.json'):
+            filename = f'{filename}.json'
+
+        return SimpleFileDriver(filename)
+
 
 
 if __name__ == '__main__':

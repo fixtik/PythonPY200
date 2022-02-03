@@ -14,7 +14,7 @@ files:
     status: Solved
     encrypted_possible_answer: '@total_ordering'
   - offset: 2565
-    length: 311
+    length: 312
     placeholder_text: '# TODO определить метод __lt__'
     initial_state:
       length: 30

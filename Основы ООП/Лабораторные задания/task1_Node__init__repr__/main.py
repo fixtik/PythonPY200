@@ -26,4 +26,5 @@ if __name__ == '__main__':
     first_node.next = second_node
 
     print(first_node)
+
     print(second_node)

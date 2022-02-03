@@ -100,31 +100,31 @@ files:
   visible: true
   placeholders:
   - offset: 56
-    length: 48
+    length: 19
     placeholder_text: '...):  # TODO наследоваться от unittest.TestCase'
     initial_state:
       length: 48
       offset: 56
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: 'unittest.TestCase):'
-  - offset: 247
-    length: 66
+  - offset: 278
+    length: 100
     placeholder_text: '...  # TODO с помощью метода assertIsNone проверить следующий
       узел'
     initial_state:
       length: 66
       offset: 247
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       node = Node("node_without_next")
 
               msg = "Значение следующего узла по умолчанию должно быть None"
               self.assertIsNone(node.next, msg)
-  - offset: 452
+  - offset: 671
     length: 40
     placeholder_text: '...  # TODO проверить что узлы связались'
     initial_state:
@@ -132,14 +132,14 @@ files:
       offset: 452
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       right_node = Node("right")
               left_node = Node("left", right_node)
 
               msg = "Значение следующего при инициализации некорректно"
               self.assertEqual(repr(left_node.next), repr(right_node), msg)
-  - offset: 623
+  - offset: 984
     length: 56
     placeholder_text: '...  # TODO проверить метод __repr__ без следующего узла'
     initial_state:
@@ -147,23 +147,23 @@ files:
       offset: 623
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       node = Node("node_without_next")
 
               msg = "Значение представления __repr__ некорректно для узла без следующего узла. "
               self.assertEqual(repr(node), "Node(node_without_next, None)", msg)
-  - offset: 685
-    length: 62
+  - offset: 1046
+    length: 14
     placeholder_text: '...  # TODO пропустить тест с помощью декоратора unittest.skip'
     initial_state:
       length: 62
       offset: 685
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '@unittest.skip("Тест пропущен по причине ...")'
-  - offset: 973
+  - offset: 1357
     length: 40
     placeholder_text: '# TODO проверить строковое представление'
     initial_state:
@@ -171,21 +171,21 @@ files:
       offset: 973
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: self.assertEqual(str(node), str(some_value))
-  - offset: 1052
-    length: 57
+  - offset: 1537
+    length: 49
     placeholder_text: '...  # TODO проверить метод is_valid при корректных узлах'
     initial_state:
       length: 57
       offset: 1052
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       Node.is_valid(None)
               Node.is_valid(Node("correct_node"))
-  - offset: 1119
+  - offset: 1596
     length: 99
     placeholder_text: '# TODO с помощью менеджера контакста и метода assertRaises
       проверить корректность вызываемой ошибки'
@@ -194,7 +194,7 @@ files:
       offset: 1119
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       with self.assertRaises(TypeError):
                   Node.is_valid("incorrect_type")
@@ -233,5 +233,8 @@ files:
 
             # TODO с помощью менеджера контакста и метода assertRaises проверить корректность вызываемой ошибки
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 01 Feb 2022 13:33:12 UTC
 record: -1
